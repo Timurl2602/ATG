@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
@@ -15,6 +14,20 @@ public class GameHandler : MonoBehaviour
     {
         buttonSnow.text = "Disable Snow";
         buttonBlizzard.text = "Enable Blizzard";
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Game has been quit!");
+            Application.Quit();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("IceWorldTest_01");
+        }
     }
 
     public void EnableSnow()
