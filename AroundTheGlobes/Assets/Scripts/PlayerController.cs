@@ -11,8 +11,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool RotateTowardMouse;
 
+    [SerializeField] 
+    private float movementSpeed;
     [SerializeField]
-    private float MovementSpeed;
+    private float walkSpeed;
+    [SerializeField]
+    private float sprintSpeed;
     [SerializeField]
     private float RotationSpeed;
 
@@ -40,6 +44,16 @@ public class PlayerController : MonoBehaviour
             RotateFromMouseVector();
         }
 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            Debug.Log("im sprinting!");
+            movementSpeed = sprintSpeed;
+        }
+        else
+        {
+            movementSpeed = walkSpeed;
+        }
+
     }
 
     private void RotateFromMouseVector()
@@ -56,9 +70,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 MoveTowardTarget(Vector3 targetVector)
     {
-        var speed = MovementSpeed * Time.deltaTime;
-        // transform.Translate(targetVector * (MovementSpeed * Time.deltaTime)); Demonstrate why this doesn't work
-        //transform.Translate(targetVector * (MovementSpeed * Time.deltaTime), Camera.gameObject.transform);
+        var speed = movementSpeed * Time.deltaTime;
 
         targetVector = Quaternion.Euler(0, Camera.gameObject.transform.rotation.eulerAngles.y, 0) * targetVector;
         var targetPosition = transform.position + targetVector * speed;
