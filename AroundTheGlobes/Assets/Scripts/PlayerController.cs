@@ -1,16 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(InputHandler))]
 public class PlayerController : MonoBehaviour
 {
     private InputHandler _input;
+    private Rigidbody rb;
+
+    [SerializeField] private TextMeshProUGUI dashText;
 
     [SerializeField]
     private bool RotateTowardMouse;
-
+    [SerializeField] 
+    private float dashSpeed;
+    [SerializeField] 
+    private bool isDashing;
+    [SerializeField] 
+    private bool dashReady;
+    [SerializeField] 
+    private float dashTimer;
+    [SerializeField] 
+    private float dashCooldown;
     [SerializeField] 
     private float movementSpeed;
     [SerializeField]
@@ -40,12 +50,14 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _input = GetComponent<InputHandler>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Start()
     {
         stamina = maxStamina;
         movementSpeed = walkSpeed;
+        dashReady = true;
     }
 
     // Update is called once per frame
@@ -75,7 +87,36 @@ public class PlayerController : MonoBehaviour
             movementSpeed = walkSpeed;
         }
 
+        if (Input.GetKeyDown(KeyCode.F) && dashReady)
+        {
+            isDashing = true;
+            dashReady = false;
+            dashTimer = dashCooldown;
+        }
 
+        if (!dashReady)
+        {
+            dashTimer -= Time.deltaTime;
+        }
+
+        if (dashTimer <= 0)
+        {
+            dashReady = true;
+            dashText.text = "Dash ready";
+        }
+        else
+        {
+            dashText.text = "Dash on cooldown";
+        }
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (isDashing)
+        {
+            Dash();
+        }
     }
 
     private void RotateFromMouseVector()
@@ -118,5 +159,11 @@ public class PlayerController : MonoBehaviour
     private void IncreaseStamina()
     {
         stamina += dValue * Time.deltaTime;
+    }
+
+    private void Dash()
+    {
+        rb.AddForce(transform.forward * dashSpeed, ForceMode.Impulse);
+        isDashing = false;
     }
 }
