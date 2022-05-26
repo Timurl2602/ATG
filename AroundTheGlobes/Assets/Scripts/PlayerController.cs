@@ -19,6 +19,20 @@ public class PlayerController : MonoBehaviour
     private float sprintSpeed;
     [SerializeField]
     private float RotationSpeed;
+    [SerializeField] 
+    private float stamina;
+    public float Stamina
+    {
+        get { return stamina; }
+    }
+    [SerializeField] 
+    private float maxStamina;
+    public float MaxStamina
+    {
+        get { return maxStamina; }
+    }
+    [SerializeField] 
+    private float dValue;
 
     [SerializeField]
     private Camera Camera;
@@ -26,6 +40,12 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _input = GetComponent<InputHandler>();
+    }
+
+    private void Start()
+    {
+        stamina = maxStamina;
+        movementSpeed = walkSpeed;
     }
 
     // Update is called once per frame
@@ -43,16 +63,18 @@ public class PlayerController : MonoBehaviour
         {
             RotateFromMouseVector();
         }
-
-        if (Input.GetKey(KeyCode.LeftShift))
+        
+        if (Input.GetKey(KeyCode.LeftShift) && stamina >= 0)
         {
-            Debug.Log("im sprinting!");
             movementSpeed = sprintSpeed;
+            DecreaseStamina();
         }
-        else
+        else if (stamina != maxStamina && stamina <= maxStamina)
         {
+            IncreaseStamina();
             movementSpeed = walkSpeed;
         }
+
 
     }
 
@@ -83,5 +105,18 @@ public class PlayerController : MonoBehaviour
         if(movementDirection.magnitude == 0) { return; }
         var rotation = Quaternion.LookRotation(movementDirection);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, RotationSpeed);
+    }
+
+    private void DecreaseStamina()
+    {
+        if (stamina != 0)
+        {
+            stamina -= dValue * Time.deltaTime;
+        }
+    }
+    
+    private void IncreaseStamina()
+    {
+        stamina += dValue * Time.deltaTime;
     }
 }
