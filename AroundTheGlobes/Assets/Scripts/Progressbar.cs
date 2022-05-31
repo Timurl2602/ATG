@@ -7,8 +7,6 @@ public class Progressbar : MonoBehaviour
 
     [SerializeField] private Slider buildingProgressbar;
 
-    [SerializeField] private Vector3 offset;
-
     private void Update()
         {
 
