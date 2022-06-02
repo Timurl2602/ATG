@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
-    [SerializeField] private bool isFreezing;
+    [SerializeField] private bool isFreezing; 
+        public bool IsFreezing
+    {
+        get { return isFreezing; }
+        set => isFreezing = value;
+    }
     [SerializeField] private bool isTakingDamage;
     [SerializeField] private bool isHealing;
     [SerializeField] private PlayerHealthSystem playerHealth;
@@ -12,7 +17,6 @@ public class PlayerStatus : MonoBehaviour
     private void Start()
     {
         playerHealth = GetComponent<PlayerHealthSystem>();
-        isFreezing = true;
     }
 
     private void Update()

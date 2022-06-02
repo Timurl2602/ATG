@@ -10545,6 +10545,7 @@ GameObject:
   - component: {fileID: 984330742}
   - component: {fileID: 984330741}
   - component: {fileID: 984330740}
+  - component: {fileID: 984330743}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -10575,10 +10576,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984330738}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.94, y: 8.06, z: 8.5}
+  m_Size: {x: 35, y: 8.06, z: 35}
   m_Center: {x: 0.102853075, y: 1.8592862, z: 0.10402466}
 --- !u!23 &984330741
 MeshRenderer:
@@ -10630,6 +10631,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984330738}
   m_Mesh: {fileID: -2432090755550338912, guid: 86015d51ba1d06f4785412daad2046fa, type: 3}
+--- !u!114 &984330743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984330738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d6b2b53e6b3b4a34a345c0b9158f4e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatus: {fileID: 1083553469}
 --- !u!64 &988411069
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19675,7 +19689,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7779816, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -41979,6 +41993,7 @@ GameObject:
   - component: {fileID: 4583580785641943098}
   - component: {fileID: 1061051061510165678}
   - component: {fileID: 7637302679697513036}
+  - component: {fileID: 7637302679697513037}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -41994,8 +42009,21 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7637302679697513035}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.94, y: 8.06, z: 8.5}
+  m_Size: {x: 35, y: 8.06, z: 35}
   m_Center: {x: 0.102853075, y: 1.8592862, z: 0.10402466}
+--- !u!114 &7637302679697513037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7637302679697513035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d6b2b53e6b3b4a34a345c0b9158f4e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatus: {fileID: 1083553469}
