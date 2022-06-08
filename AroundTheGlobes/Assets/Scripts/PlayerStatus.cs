@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -13,10 +14,12 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private bool isTakingDamage;
     [SerializeField] private bool isHealing;
     [SerializeField] private PlayerHealthSystem playerHealth;
+    [SerializeField] private GameObject coldIcons;
 
     private void Start()
     {
         playerHealth = GetComponent<PlayerHealthSystem>();
+        isFreezing = true;
     }
 
     private void Update()
@@ -34,19 +37,20 @@ public class PlayerStatus : MonoBehaviour
         if (!isFreezing && !isHealing)
         {
             StartCoroutine(Heal(10));
-        } 
+        }
         else if (isFreezing && isTakingDamage)
         {
             StopCoroutine(Heal(0));
             isHealing = false;
         }
-        
+
     }
 
     public IEnumerator FreezeDamage(float damageAmount)
     {
         isTakingDamage = true;
         float damagePerLoop = damageAmount;
+        coldIcons.SetActive(true);
         while (isFreezing)
         {
             playerHealth.PlayerHealth -= damagePerLoop;
@@ -59,6 +63,7 @@ public class PlayerStatus : MonoBehaviour
     {
         isHealing = true;
         float healPerLoop = healAmount;
+        coldIcons.SetActive(false);
         while (!isFreezing && playerHealth.PlayerHealth <= 100)
         {
             playerHealth.PlayerHealth += healPerLoop;
