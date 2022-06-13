@@ -53,8 +53,8 @@ public class PlayerStatus : MonoBehaviour
         coldIcons.SetActive(true);
         while (isFreezing)
         {
-            playerHealth.PlayerHealth -= damagePerLoop;
             yield return new WaitForSeconds(3f);
+            playerHealth.PlayerHealth -= damagePerLoop;
 
         }
     }
@@ -66,8 +66,8 @@ public class PlayerStatus : MonoBehaviour
         coldIcons.SetActive(false);
         while (!isFreezing && playerHealth.PlayerHealth <= 100)
         {
-            playerHealth.PlayerHealth += healPerLoop;
             yield return new WaitForSeconds(3f);
+            playerHealth.PlayerHealth += healPerLoop;
         }
     }
     
