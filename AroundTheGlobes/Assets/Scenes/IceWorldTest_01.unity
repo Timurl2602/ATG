@@ -16365,6 +16365,9 @@ MonoBehaviour:
   isHealing: 0
   playerHealth: {fileID: 0}
   coldIcons: {fileID: 212390022}
+  loopTime: 1
+  damageAmount: 1
+  healAmount: 1
 --- !u!64 &1083943207
 MeshCollider:
   m_ObjectHideFlags: 0

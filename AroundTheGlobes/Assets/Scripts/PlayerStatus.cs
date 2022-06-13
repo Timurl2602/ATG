@@ -15,6 +15,9 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private bool isHealing;
     [SerializeField] private PlayerHealthSystem playerHealth;
     [SerializeField] private GameObject coldIcons;
+    [SerializeField] private float loopTime;
+    [SerializeField] private float damageAmount;
+    [SerializeField] private float healAmount;
 
     private void Start()
     {
@@ -26,47 +29,47 @@ public class PlayerStatus : MonoBehaviour
     {
         if (isFreezing && !isTakingDamage)
         {
-            StartCoroutine(FreezeDamage(5));
+            StartCoroutine(FreezeDamage());
         }
         else if (!isFreezing && isTakingDamage)
         {
-            StopCoroutine(FreezeDamage(0));
+            StopCoroutine(FreezeDamage());
             isTakingDamage = false;
         }
 
         if (!isFreezing && !isHealing)
         {
-            StartCoroutine(Heal(10));
+            StartCoroutine(Heal());
         }
         else if (isFreezing && isTakingDamage)
         {
-            StopCoroutine(Heal(0));
+            StopCoroutine(Heal());
             isHealing = false;
         }
 
     }
 
-    public IEnumerator FreezeDamage(float damageAmount)
+    public IEnumerator FreezeDamage()
     {
         isTakingDamage = true;
         float damagePerLoop = damageAmount;
         coldIcons.SetActive(true);
         while (isFreezing)
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(loopTime);
             playerHealth.PlayerHealth -= damagePerLoop;
 
         }
     }
     
-    public IEnumerator Heal(float healAmount)
+    public IEnumerator Heal()
     {
         isHealing = true;
         float healPerLoop = healAmount;
         coldIcons.SetActive(false);
         while (!isFreezing && playerHealth.PlayerHealth <= 100)
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(loopTime);
             playerHealth.PlayerHealth += healPerLoop;
         }
     }
