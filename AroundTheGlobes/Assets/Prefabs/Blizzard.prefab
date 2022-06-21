@@ -13,15 +13,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6808726436581774704, guid: ee15abba078218d4bbaec6ef930d488a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 15.8
       objectReference: {fileID: 0}
     - target: {fileID: 6808726436581774704, guid: ee15abba078218d4bbaec6ef930d488a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12
+      value: 8.616084
       objectReference: {fileID: 0}
     - target: {fileID: 6808726436581774704, guid: ee15abba078218d4bbaec6ef930d488a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.25
+      value: 27.403133
       objectReference: {fileID: 0}
     - target: {fileID: 6808726436581774704, guid: ee15abba078218d4bbaec6ef930d488a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -52,6 +52,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6808726436581774707, guid: ee15abba078218d4bbaec6ef930d488a, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808726436581774707, guid: ee15abba078218d4bbaec6ef930d488a, type: 3}
       propertyPath: simulationSpeed
       value: 3
       objectReference: {fileID: 0}
@@ -72,12 +76,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6808726436581774707, guid: ee15abba078218d4bbaec6ef930d488a, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808726436581774707, guid: ee15abba078218d4bbaec6ef930d488a, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808726436581774707, guid: ee15abba078218d4bbaec6ef930d488a, type: 3}
       propertyPath: VelocityModule.x.scalar
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6808726436581774707, guid: ee15abba078218d4bbaec6ef930d488a, type: 3}
       propertyPath: VelocityModule.x.minScalar
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808726436581774707, guid: ee15abba078218d4bbaec6ef930d488a, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 6808726436581774707, guid: ee15abba078218d4bbaec6ef930d488a, type: 3}
       propertyPath: InitialModule.startSize.scalar
