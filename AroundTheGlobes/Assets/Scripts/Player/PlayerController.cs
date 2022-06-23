@@ -6,11 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     private InputHandler _input;
     private Rigidbody rb;
-
-    [SerializeField] private TextMeshProUGUI dashText;
-
-    [SerializeField]
     private bool RotateTowardMouse;
+    
+    /*
+     [SerializeField] private TextMeshProUGUI dashText;
     [SerializeField] 
     private float dashSpeed;
     [SerializeField] 
@@ -21,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private float dashTimer;
     [SerializeField] 
     private float dashCooldown;
+    */
     [SerializeField] 
     private float movementSpeed;
     [SerializeField]
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     {
         stamina = maxStamina;
         movementSpeed = walkSpeed;
-        dashReady = true;
+        //dashReady = true;
     }
 
     // Update is called once per frame
