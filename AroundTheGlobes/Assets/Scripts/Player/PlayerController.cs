@@ -87,13 +87,14 @@ public class PlayerController : MonoBehaviour
             movementSpeed = walkSpeed;
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && dashReady)
+            // DASH
+        /*if (Input.GetKeyDown(KeyCode.F) && dashReady)
         {
             isDashing = true;
             dashReady = false;
             dashTimer = dashCooldown;
         }
-
+        
         if (!dashReady)
         {
             dashTimer -= Time.deltaTime;
@@ -108,15 +109,17 @@ public class PlayerController : MonoBehaviour
         {
             dashText.text = "Dash on cooldown";
         }
+        */
 
     }
 
     private void FixedUpdate()
     {
-        if (isDashing)
+       /* if (isDashing)
         {
             Dash();
         }
+        */
     }
 
     private void RotateFromMouseVector()
@@ -161,9 +164,11 @@ public class PlayerController : MonoBehaviour
         stamina += dValue * Time.deltaTime;
     }
 
+    /*
     private void Dash()
     {
         rb.AddForce(transform.forward * dashSpeed, ForceMode.Impulse);
         isDashing = false;
     }
+    */
 }
