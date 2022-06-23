@@ -52,23 +52,22 @@ public class RandomizeBlizzard : MonoBehaviour
 
         if (randomNumber <= snowChance)
         {
-            bonfires[disabledBonfire].gameObject.SetActive(true);
             snow.Play();
             blizzard.Stop();
-            Debug.Log("Snow");
+            
+            bonfires[disabledBonfire].gameObject.SetActive(true);
         }
 
         if (randomNumber > snowChance )
         {
             blizzard.Play();
-            bonfires[disabledBonfire].gameObject.SetActive(true);
             snow.Stop();
+            
+            bonfires[disabledBonfire].gameObject.SetActive(true);
+            
             var randomBonfire = Random.Range(0, bonfires.Length);
             disabledBonfire = randomBonfire;
             bonfires[randomBonfire].gameObject.SetActive(false);
-            Debug.Log("Blizzard");
-            Debug.Log(randomNumber);
-            Debug.Log(randomBonfire);
         }
     }
 }
