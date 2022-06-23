@@ -947,8 +947,8 @@ MonoBehaviour:
   - {fileID: 1472938431077229202}
   - {fileID: 1749660830}
   - {fileID: 377618373}
-  snowChance: 1
-  timerLength: 5
+  snowChance: 60
+  timerLength: 60
   timer: 120
   isTimerRunning: 0
   disabledBonfire: 0
@@ -18392,7 +18392,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.257436, y: 1}
+    m_SensorSize: {x: 1.7779661, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
