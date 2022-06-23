@@ -25,7 +25,7 @@ public class Building : MonoBehaviour
     {
         if (other.CompareTag("Cube"))
         {
-            Destroy(other.gameObject);
+            Destroy(other.gameObject, 3);
             cubes++;
         }
     }
